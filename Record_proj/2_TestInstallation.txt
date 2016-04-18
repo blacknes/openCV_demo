@@ -1,0 +1,81 @@
+/*******************************************************************************
+ * Author :          Nill_Rhoads
+ * Email :           nillrhoads@gmail.com
+ * Last modified :   2016-04-18 16:06
+ * Filename :        2_TestInstallation.txt
+ * Description :     
+ * *****************************************************************************/
+
+
+ 1: After Install is Complete, we must write a programe to test openCV is worked,can be used,
+	So: here is Test programe
+
+------------------------ code start ---------------------
+#include <stdio.h>
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
+int main(int argc, char** argv )
+{
+    if ( argc != 2 )
+    {
+        printf("usage: DisplayImage.out <Image_Path>\n");
+        return -1;
+    }
+
+    Mat image;
+    image = imread( argv[1], 1 );
+
+    if ( !image.data )
+    {
+        printf("No image data \n");
+        return -1;
+    }
+    namedWindow("Display Image", WINDOW_AUTOSIZE );
+    imshow("Display Image", image);
+
+    waitKey(0);
+
+    return 0;
+}
+---------------------- code end -------------------------
+
+ 2: OpenCV can use cmake tools to configure and compiler
+	
+cmake_minimum_required(VERSION 2.8)
+project( DisplayImage )
+find_package( OpenCV REQUIRED )
+add_executable( DisplayImage DisplayImage.cpp )
+target_link_libraries( DisplayImage ${OpenCV_LIBS} )
+
+
+--------------------------------------------------------
+
+mkdir build
+cd build
+cmake ..
+make
+
+then: run programe
+
+
+----------------------- Add Python support -----------
+
+sudo apt-get install python-opencv
+sudo apt-get install python-numpy
+
+-------------------------------
+Test Install is Complete
+
+open python in terminal and import cv 
+
+import cv
+
+
+--------------------------------------------------------
+
+
+
+
+

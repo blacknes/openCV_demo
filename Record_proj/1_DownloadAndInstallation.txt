@@ -1,0 +1,24 @@
+/*******************************************************************************
+ * Author :          Nill_Rhoads
+ * Email :           nillrhoads@gmail.com
+ * Last modified :   2016-04-18 15:54
+ * Filename :        1_DownloadAndInstallation.txt
+ * Description :     
+ * *****************************************************************************/
+env:
+  ubuntu14.04
+	Install: [compiler] sudo apt-get install build-essential
+	Install: [required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+	Install: [optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+-----------------Download Source------------------------
+  Download source code: http://opencv.org/
+  Version 3.1.0
+
+  Install Step:	
+	1: unarchiver package and cd into source folder
+	2: mkdir DIR build folder and CD in
+	3: run "cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local .." To configuer cmake proj
+	4: make && make install
+
+---------------Installation complete--------------------
